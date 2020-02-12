@@ -14,25 +14,30 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-xs-12 bg-size">
+            <div class="col-lg-12 col-xs-12">
                 <h1 id="title">Hangman</h1>
-                <div class="row">
-                    <div class="col-lg-12" id="hangman-stand">
-                        <div class="col-lg-6 justify-content-center bg-danger">
-                            d
-                        </div>
-                        
-                    </div>
-                </div>
             </div>
-            <!-- <div class="col-lg-1 bg-danger" id="title">
-                2
-            </div>
-         -->
         </div>
+
+
+        <div class="row bg-size">
+            <div class="col-lg-12 flex-display">
+
+                <canvas id="canvas1"></canvas>
+
+            </div>
+        </div>
+
+        <div class="row" id="play-area">
+            <div class="col-lg-12 word-space">
+                <button class="btn btn-success" id="let-play-button">Let's Play</button>
+                <h4 id="_"><strong>_ _ _ _ _ _ _</strong></h4>
+                <h4 id="hint"><small>Hint:</small></h4>
+            </div>
+        </div>
+
+
     </div>
-
-
 
 
 

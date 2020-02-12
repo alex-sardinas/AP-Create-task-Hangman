@@ -1,19 +1,55 @@
 body {
-    background-color: #203354;
+    background-color: #0b6623;
 }
 
+
+.flex-display{
+    display: flex;
+    justify-content: center;
+}
 
 #title{
     color: white;
     text-align: center;
+    font-size: 80px;
 }
 
 .bg-size{
-    height: 100vh;
-    background-color: #203354;
+    height: 50vh;
+    background-color:  #0b6623;
+}
+
+
+.word-space{
+    text-align: center;
+}
+
+#_{
+    font-size: 50px;
+    color: white;
+}
+
+#hint{
+    color: white;
+}
+
+#play-area{
+    height: 25vh;
+    background-color: #0b6623;
+}
+
+#let-play-button{
+    font-size: 25px;
+    margin-top: 2.5%;
 }
 
 #hangman-stand{
-    height: 15vh;
-    background-color: aliceblue;
+    text-align: center;
+}
+
+#canvas1{
+    width: 25vw;
+    height: 40vh;
+    border: 1px dotted white;
+    margin-top: 5%; 
 }
