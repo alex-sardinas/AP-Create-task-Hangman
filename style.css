@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    margin: 0;
 }
 
 body{
@@ -21,9 +22,9 @@ body{
 }
 
 .game-con{
-    padding: 20px 30px;
+    padding: 0 30px;
     position: relative;
-    margin: auto;
+    margin: 50px;
     height: 350px;
     width: 450px;
 }
@@ -41,11 +42,11 @@ body{
 
 .wrong-letters-con{
     position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: right;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
 }
 
 .wrong-letters-con p{
@@ -64,7 +65,7 @@ body{
     transform: translateX(-50%);
 }
 
-.letter{
+.l{
     border-bottom: 3px solid lightgreen;
     display: inline-flex;
     font-size: 30px;

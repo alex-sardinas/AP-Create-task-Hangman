@@ -1,15 +1,35 @@
-const wordEl = document.getElementById('word');
-const wrongLettersEl = document.getElementById('wrong-letters');
-const playAgainBtn = document.getElementById('play-button');
-const popup = document.getElementById('popup-container');
-const notification = document.getElementById('notification-container');
-const finalMessage = document.getElementById('final-message');
+let button = document.getElementById('let-play');
+let hangman = document.getElementsByClassName('hangman-part');
+let random;
+let wrong = document.getElementById('wrong-letters')
 
-const figureParts = document.querySelectorAll('.figure-part');
+function rand(){
+    random = hangman[Math.floor(Math.random() * hangman.length)]
+}
 
-const words = ['godfather', 'jaws', 'mother', 'zeitgeist'];
+button.onclick = function(){
 
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+    rand();
+    if (random.style.display === 'none'){
+        random.style.display = 'block'
+    } else {
+        random.style.display = 'none'
+    }
+}
 
-const correctLetters = [];
-const wrongLetters = [];
+console.log(hangman);
+
+rand();
+console.log(random);
+
+function betski(){
+    console.log('hello');
+    if(wrong.children[1].innerHTML = '1'){
+        wrong.children[1].innerHTML = "boi"
+    } else {
+        wrong.children[1].innerHTML = "1"
+    }
+}
+
+document.addEventListener('keydown', betski)
+console.log(wrong.children[1])
