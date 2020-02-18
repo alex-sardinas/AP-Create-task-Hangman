@@ -1,12 +1,15 @@
-let button = document.getElementById('let-play-button')
+const wordEl = document.getElementById('word');
+const wrongLettersEl = document.getElementById('wrong-letters');
+const playAgainBtn = document.getElementById('play-button');
+const popup = document.getElementById('popup-container');
+const notification = document.getElementById('notification-container');
+const finalMessage = document.getElementById('final-message');
 
+const figureParts = document.querySelectorAll('.figure-part');
 
-button.onclick = function(){
-    let typing = document.getElementById('typing')
-    if (typing.style.display === 'none'){
-        typing.style.display = 'block'
-    } else {
-        typing.style.display = 'block'
-    }
-}
+const words = ['godfather', 'jaws', 'mother', 'zeitgeist'];
 
+let selectedWord = words[Math.floor(Math.random() * words.length)];
+
+const correctLetters = [];
+const wrongLetters = [];

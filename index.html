@@ -6,52 +6,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-xs-12">
-                <h1 id="title">Hangman</h1>
-            </div>
+
+    
+    
+
+
+
+
+
+    <body>
+        <h1>Hangman</h1>
+        <div class="game-con">
+          <svg height="250" width="200" class="hangman-stand">
+            <!-- Rod -->
+            <line x1="60" y1="20" x2="140" y2="20"></line>
+            <line x1="140" y1="20" x2="140" y2="50"></line>
+            <line x1="60" y1="20" x2="60" y2="230"></line>
+            <line x1="20" y1="230" x2="100" y2="230"></line>
+    
+            <!-- Head -->
+            <circle cx="140" cy="70" r="20" class=" hangman-part"></circle>
+            <!-- Body -->
+            <line x1="140" y1="90" x2="140" y2="150" class=" hangman-part"  ></line>
+            <!-- Arms -->
+            <line x1="140" y1="120" x2="120" y2="100" class=" hangman-part"  ></line>
+            <line x1="140" y1="120" x2="160" y2="100" class=" hangman-part"></line>
+            <!-- Legs -->
+            <line x1="140" y1="150" x2="120" y2="180" class=" hangman-part"  ></line>
+            <line x1="140" y1="150" x2="160" y2="180" class=" hangman-part"  ></line>
+          </svg>
+    
+          <div class="wrong-letters-con">
+            <div id="wrong-letters">
+        <p>Wrong</p>
+        <span>I</span>
+      </div>
+          </div>
+    
+          <div class="word" id="word">
+        
+              <span class="letter">
+                
+              </span>
+            
+              <span class="letter">
+                
+              </span>
+            
+              <span class="letter">
+                
+              </span>
+            
+              <span class="letter">
+                
+              </span>
+            
+              <span class="letter">
+                
+              </span>
+            
+              <span class="letter">
+                
+              </span>
+            
+      </div>
         </div>
-
-
-        <div class="row bg-size">
-            <div class="col-lg-12 flex-display">
-
-                <canvas id="canvas1"></canvas>
-
-            </div>
+    
+        <!-- Container for final message -->
+        <div class="popup-container" id="popup-container"  >
+          <div class="popup">
+            <h2 id="final-message">Congratulations! You won!</h2>
+            <button id="play-button">Play Again</button>
+          </div>
         </div>
-
-        <div class="row" id="play-area">
-            <div class="col-lg-12 word-space">
-                <button class="btn btn-success" id="let-play-button">Let's Play</button>
-                <div id="typing">
-                    <h4 id="_"><strong>_ _ _ _ _ _ _</strong></h4>
-                    <h4 id="hint"><small>Hint:</small></h4>
-                </div>
-            </div>
+    
+        <!-- Notification -->
+        <div class="notification-container" id="notification-container">
+          <p>You have already entered this letter</p>
         </div>
+    
+        
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script> -->
+        <script src="script.js"></script>
+    
+    </body>
 
-
-    </div>
-
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-</body>
 
 </html>
+
+<!-- <h1 id="title">Hangman</h1>
+    <div class="game-con">
+        
+        SVG from udemy
+        <svg class="hangman-stand">
+            Stand
+            <line x1="60" y1="20" x2="140" y2="20"/>
+            <line x1="60" y1="20" x2="60" y2="200" />
+            <line x1="30" y1="200" x2="90" y2="200" />
+            <line x1="140" y1="20" x2="140" y2="45" />
+            Head
+            <circle cx="140" cy="65" r="20" class="hangman-part"/>
+            Body
+            <line x1="140" y1="85" x2="140" y2="155" class="hangman-part"/>
+            Arms
+            <line x1="140" y1="105" x2="120" y2="95" class="hangman-part"/>
+            <line x1="140" y1="105" x2="160" y2="95" class="hangman-part"/>
+            Legs
+            <line x1="140" y1="155" x2="170" y2="175" class="hangman-part"/>
+            <line x1="140" y1="155" x2="110" y2="175" class="hangman-part"/>
+        </svg>
+
+        <div class="wrong-letter-con">
+            <div id="wrong-letters">
+                <h6>Wrong</h6> 
+                <span>a, d, d, f</div>
+            </div>
+        </div>
+
+        <div class="word" id="word">
+            <div class="letter">h</div>
+            <div class="letter">e</div>
+            <div class="letter">l</div>
+            <div class="letter">l</div>
+            <div class="letter">o</div>
+        </div>
+    </div>
+
+    <div class="popup-con" id="popup-con">
+        <div class="pop">
+            <h2 id="final-message">You Have Won</h2>
+            <button id="play-button">Play Again</button>
+        </div>
+    </div>
+
+    <div class="notification-con" id="notification-con">
+        <p>You have already entered this letter</p>
+    </div> -->
