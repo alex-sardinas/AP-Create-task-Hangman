@@ -34,6 +34,7 @@ body{
     stroke: #fff;
     stroke-width: 4px;
     stroke-linecap: round;
+    border: 3px dotted white;
 }
 
 .hangman-part{
