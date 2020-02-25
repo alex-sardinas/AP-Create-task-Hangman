@@ -76,6 +76,14 @@ body{
     width: 20px;
 }
 
+.hint{
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+
 .winning{
     padding: 20px;
     background-color: lawngreen;
