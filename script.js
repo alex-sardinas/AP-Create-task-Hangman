@@ -62,7 +62,6 @@ function selecting(e) {
         }
     }
     console.log(e.keyCode)
-
 }
 
 function wrongLettersFunc() {
