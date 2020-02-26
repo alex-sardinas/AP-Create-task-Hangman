@@ -10,14 +10,19 @@ let lives = 6
 let livesHTML = document.getElementById('mylives');
 let hintDiv = document.getElementById('hint')
 let movies = [
-    ['psycho', 'vertigo', 'rope'], 
-    ['aliens', 'avatar', 'titanic'], 
-    ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento'], 
-    ['goodfellas', 'casino', 'hugo']
+    ['psycho', 'vertigo', 'rope', 'the-birds'], 
+    ['aliens', 'avatar', 'titanic', 'the-terminator'], 
+    ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento', 'the-dark-knight'], 
+    ['goodfellas', 'casino', 'hugo','taxi-driver','the-departed','raging-bull','the-irishman', 'shutter-island'],
+    ['saving-private-ryan','jurassic-park','ET','jaws','schindlers-list'],
+    ['kill-bill', 'django-unchained', 'reservior-dogs','pulp-fiction','jackie-brown', 'death-proof'],
+    ['the-shining','lolita','spartacus','barry-lyndon'],
+    ['star-wars'],
+    ['the-godfather','apocalypse-now', 'the-outsiders']
 ]
 let director = movies[Math.floor(Math.random() * movies.length)]
 let theMovie = director[Math.floor(Math.random() * director.length)]
-let correctLetters = [];
+let correctLetters = ['-'];
 let wrongLetters = [];
 
 // Core Functions
@@ -43,6 +48,8 @@ function playing() {
     livesHTML.innerHTML =  `
     <h4>Lives: ${lives}</h4>
     `
+
+    console.log(theMovie)
 }
 
 window.addEventListener('keydown', selecting);
@@ -68,13 +75,23 @@ function selecting(e) {
 
 function leHint() {
     if(director === movies[0]){
-        hintDiv.innerHTML = `<h4>Hint: Alferd Hitchcock </h4> `
+        hintDiv.innerHTML = `<h4>Hint: Alfred Hitchcock </h4> `
     } else if (director === movies[1]){
         hintDiv.innerHTML = `<h4>Hint: James Cameron </h4>`
     } else if (director === movies[2]){
         hintDiv.innerHTML = `<h4>Hint: Christopher Nolan </h4>`
     } else if (director === movies[3]){
         hintDiv.innerHTML = `<h4>Hint: Martin Scorsese  </h4>`
+    } else if (director === movies[4]){
+        hintDiv.innerHTML = `<h4>Hint: Steven Spielberg  </h4>`
+    } else if (director === movies[5]){
+        hintDiv.innerHTML = `<h4>Hint: Quentin Tarantino  </h4>`
+    } else if (director === movies[6]){
+        hintDiv.innerHTML = `<h4>Hint: Stanley Kubrick  </h4>`
+    } else if (director === movies[7]){
+        hintDiv.innerHTML = `<h4>Hint: George Lucas  </h4>`
+    } else if (director === movies[8]){
+        hintDiv.innerHTML = `<h4>Hint: Francis Ford Coppala  </h4>`
     } 
 }
 
@@ -109,13 +126,19 @@ function restart() {
     correctLetters.splice(0);
     wrongLetters.splice(0);
 
+    correctLetters = ['-']
     lives = 6
     
     movies = [
-        ['psycho', 'vertigo', 'rope'], 
-        ['aliens', 'avatar', 'titanic'], 
-        ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento'], 
-        ['goodfellas', 'casino', 'hugo']
+        ['psycho', 'vertigo', 'rope', 'the-birds'], 
+        ['aliens', 'avatar', 'titanic', 'the-terminator'], 
+        ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento', 'the-dark-knight'], 
+        ['goodfellas', 'casino', 'hugo','taxi-driver','the-departed','raging-bull','the-irishman', 'shutter-island'],
+        ['saving-private-ryan','jurassic-park','ET','jaws','schindlers-list'],
+        ['kill-bill', 'django-unchained', 'reservior-dogs','pulp-fiction','jackie-brown', 'death-proof'],
+        ['the-shining','lolita','spartacus','barry-lyndon'],
+        ['star-wars'],
+        ['the-godfather','apocalypse-now', 'the-outsiders']
     ]
     director = movies[Math.floor(Math.random() * movies.length)]
     theMovie = director[Math.floor(Math.random() * director.length)]
@@ -132,17 +155,23 @@ function restart2() {
     correctLetters.splice(0);
     wrongLetters.splice(0);
     
+    correctLetters = ['-']
+    lives = 6
+
     movies = [
-        ['psycho', 'vertigo', 'rope'], 
-        ['aliens', 'avatar', 'titanic'], 
-        ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento'], 
-        ['goodfellas', 'casino', 'hugo']
+        ['psycho', 'vertigo', 'rope', 'the-birds'], 
+        ['aliens', 'avatar', 'titanic', 'the-terminator'], 
+        ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento', 'the-dark-knight'], 
+        ['goodfellas', 'casino', 'hugo','taxi-driver','the-departed','raging-bull','the-irishman', 'shutter-island'],
+        ['saving-private-ryan','jurassic-park','ET','jaws','schindlers-list'],
+        ['kill-bill', 'django-unchained', 'reservior-dogs','pulp-fiction','jackie-brown', 'death-proof'],
+        ['the-shining','lolita','spartacus','barry-lyndon'],
+        ['star-wars'],
+        ['the-godfather','apocalypse-now', 'the-outsiders']
     ]
     director = movies[Math.floor(Math.random() * movies.length)]
     theMovie = director[Math.floor(Math.random() * director.length)]
 
-    lives = 6
-    
     playing();
     wrongLettersFunc();
     leHint();
@@ -154,5 +183,3 @@ function restart2() {
 //Init
 playing();
 leHint();
-
-
