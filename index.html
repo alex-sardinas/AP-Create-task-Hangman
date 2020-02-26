@@ -9,14 +9,15 @@
 </head>
 <body>
     <h1 id="title">Hangman</h1>
-    <div class="game-con">
+    <h6 id="intro">Play hangman with your favorite films!!</h6>
+    <div class="game-con" id="game-con">
         
         <!-- Cited Udemy -->
         <svg height="250" width="200" class="hangman-stand">
-            <line x1="60" y1="20" x2="140" y2="20" class="hangman-part"></line>
-            <line x1="140" y1="20" x2="140" y2="50" class="hangman-part"></line>
-            <line x1="60" y1="20" x2="60" y2="230" class="hangman-part"></line>
-            <line x1="20" y1="230" x2="100" y2="230" class="hangman-part"></line>
+            <line x1="60" y1="20" x2="140" y2="20"></line>
+            <line x1="140" y1="20" x2="140" y2="50"></line>
+            <line x1="60" y1="20" x2="60" y2="230"></line>
+            <line x1="20" y1="230" x2="100" y2="230"></line>
             <circle cx="140" cy="70" r="20" class="hangman-part"></circle>
             <line x1="140" y1="90" x2="140" y2="150" class="hangman-part"></line>
             <line x1="140" y1="120" x2="120" y2="100" class="hangman-part"></line>
@@ -36,20 +37,22 @@
 
         </div>
 
-        <div class="hint" id="hint">
-            <h4></h4>
+        <div class="lives" id="mylives">
+            
         </div>
+
+        <div class='hint' id="hint"> </div>
     </div>
 
 
     <div class="winning" id="winning-screen">
-        <h1>YOU WIN!! CONGRATULATIONS!</h1>
+        <h1>And the <span> Oscar </span> goes to ... <span>YOU!</span> <br> Congratulations!</h1>
         <button class="let-play" id="let-play">Play Again?</button>
     </div>
 
     <div class="losing" id="losing-screen">
-        <h1>YOU LOSE. SORRY!</h1>
-        <button class="let-play" id="let-play">Play Again?</button>
+        <h1>You got <span>snubbed</span> ☹ <br> Maybe next year?</h1>
+        <button class="let-play" id="let-play-again">Play Again?</button>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

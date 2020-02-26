@@ -4,37 +4,40 @@
 }
 
 body{
-    background-color: darkgreen;
+    background-image: url(https://cdn4.vectorstock.com/i/1000x1000/21/93/movie-cinema-screen-background-template-with-vector-23192193.jpg);
+    background-position: center;
+    background-size: cover;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     height: 80vh;
-    color: white;
+    color: black;
+    font-family: 'Benguiat Bold', arial;
 }
 
+/* PLAY AREA */
 #title{
     text-align: center;
-    color: white;
     font-size: 250%;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .game-con{
-    padding: 0 30px;
+    padding: 0px;
     position: relative;
-    margin: 50px;
+    margin:  15px 50px 0 50px;
     height: 350px;
     width: 450px;
 }
 
 .hangman-stand{
     fill: transparent;
-    stroke: #fff;
+    stroke: black;
     stroke-width: 4px;
     stroke-linecap: round;
-    border: 3px dotted white;
+    border: 3px dotted black;
 }
 
 .hangman-part{
@@ -61,13 +64,13 @@ body{
 .word{
     display: flex;
     position: absolute;
-    bottom: 10px;
+    bottom: 45px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.l{
-    border-bottom: 3px solid lightgreen;
+.x{
+    border-bottom: 3px solid black;
     display: inline-flex;
     font-size: 30px;
     align-items: center;
@@ -79,41 +82,62 @@ body{
 
 .hint{
     position: absolute;
-    bottom: -25px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
 }
 
+/* Notifications */
 .winning{
-    padding: 20px;
-    background-color: lawngreen;
+    padding: 50px;
+    color: white;
+    background-position: center;
+    background-size: cover;
+    /* background-color: gold; */
+    background-image: url(https://media1.giphy.com/media/6mnlYDQ4VdbUs/giphy.gif);
     display: none;
     text-align: center;
     position: relative;
-    top: -25vh;
+    top: -30vh;
+}
+
+.winning-img{
+    height: 100px;
+    width: 100px;
+    float: right;
 }
 
 .winning h1{
     margin-bottom: 15px;
 }
 
+.winning span {
+    color: gold;
+}
+
 .losing{
-    padding: 20px;
+    padding: 65px;
     display: none;
-    background-color: lawngreen;
+    background-image: url(https://media1.giphy.com/media/prhxPLrZG5XNu/source.gif);
+    background-position: center;
+    background-size: cover;
     text-align: center;
     position: relative;
-    top: -25vh;
+    top: -35vh;
+    color: white;
 }
 
 .losing h1{
     margin-bottom: 15px;
 }
 
+.losing span {
+    color: red;
+}
+
 .let-play{
     display: inline-block;
     height: 25px;
     width: 100px;
-}
 
+}
