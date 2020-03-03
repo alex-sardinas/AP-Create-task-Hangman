@@ -54,12 +54,6 @@ function playing() {
     if (innerWord === theMovie) {
         winningScreen.style.display = 'block'
     }
-
-    livesHTML.innerHTML =  `
-    <h4>Lives: ${lives}</h4>
-    `
-
-    console.log(theMovie)
 }
 
 window.addEventListener('keydown', selecting);
