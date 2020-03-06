@@ -9,8 +9,6 @@ let livesHTML = document.getElementById('mylives');
 let hintDiv = document.getElementById('hint')
 let movies, lives, director, theMovie, correctLetters, wrongLetters
 
-let funFact = document.getElementById('fun-fact')
-
 function setVars(){
     movies = [
         ['psycho', 'vertigo', 'rope', 'the-birds'],
