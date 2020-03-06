@@ -5,16 +5,17 @@ let wrong = document.getElementById('wrong-letters');
 let winningScreen = document.getElementById('winning-screen')
 let losingScreen = document.getElementById('losing-screen')
 let button = document.getElementById('let-play');
-let button2  = document.getElementById('let-play-again');
 let livesHTML = document.getElementById('mylives');
 let hintDiv = document.getElementById('hint')
 let movies, lives, director, theMovie, correctLetters, wrongLetters
 
+let funFact = document.getElementById('fun-fact')
+
 function setVars(){
     movies = [
-        ['psycho', 'vertigo', 'rope', 'the-birds'], 
+        ['psycho', 'vertigo', 'rope', 'the-birds'],
         ['aliens', 'avatar', 'titanic', 'the-terminator'], 
-        ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento', 'the-dark-knight'], 
+        ['inception', 'tenet', 'interstellar', 'dunkirk', 'memento', 'the-dark-knight'],
         ['goodfellas', 'casino', 'hugo','taxi-driver','the-departed','raging-bull','the-irishman', 'shutter-island'],
         ['saving-private-ryan','jurassic-park','jaws','schindlers-list'],
         ['kill-bill', 'django-unchained', 'reservior-dogs','pulp-fiction','jackie-brown', 'death-proof'],
@@ -25,7 +26,8 @@ function setVars(){
         ['seven','fight-club','gone-girl','zodiac','the-game'],
         ['parasite','snowpiercer','okja'],
         ['lost-in-translation','marie-antoinette'],
-        ['arrival','sicario','enemy','prisoners','dune']
+        ['arrival','sicario','enemy','prisoners','dune'],
+        ['lady-bird','little-women']
     ]
     lives = 6
     director = movies[Math.floor(Math.random() * movies.length)]
@@ -35,7 +37,7 @@ function setVars(){
 }
 
 // Core Functions
-function playing() {
+function wordFunc() {
     wordDiv.innerHTML =
         `
     ${theMovie
@@ -53,18 +55,47 @@ function playing() {
 
     if (innerWord === theMovie) {
         winningScreen.style.display = 'block'
+        button.style.display = 'inline-block'
+        button.style.top = '-250px'
     }
 }
 
-window.addEventListener('keydown', selecting);
-function selecting(e) {
+function wrongLettersFunc() {
+    wrong.innerHTML = `
+    ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
+    ${wrongLetters.map(letter => `<span>${letter}</span>`)} 
+    `;
+
+    livesHTML.innerHTML = `
+    <h4>Lives: ${lives--}</h4>
+    `
+
+    hangmanParts.forEach((part, index) => {
+        const incorrect = wrongLetters.length;
+
+        if (index < incorrect) {
+            part.style.display = 'block';
+        } else {
+            part.style.display = 'none';
+        }
+    });
+
+    if(wrongLetters.length === hangmanParts.length){
+        losingScreen.style.display = 'block'
+        button.style.display = 'inline-block'
+        button.style.top = '-300px'
+    }
+}
+
+window.addEventListener('keydown', keySelection);
+function keySelection(e) {
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         let letters = e.key
 
         if (theMovie.includes(letters)) {
             if (!correctLetters.includes(letters)) {
                 correctLetters.push(letters);
-                playing();
+                wordFunc();
             }
         } else {
             if (!wrongLetters.includes(letters)) {
@@ -104,63 +135,36 @@ function leHint() {
         hintDiv.innerHTML = `<h4>Hint: Sofia Coppola  </h4>`
     } else if (director === movies[13]){
         hintDiv.innerHTML = `<h4>Hint: Denis Villeneuve  </h4>`
+    } else if (director === movies[14]){
+        hintDiv.innerHTML = `<h4>Hint: Greta Gerwig  </h4>`
     } 
 }
 
-function wrongLettersFunc() {
-    wrong.innerHTML = `
-    ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
-    ${wrongLetters.map(letter => `<span>${letter}</span>`)} 
-    `;
-
-    livesHTML.innerHTML = `
-    <h4>Lives: ${lives--}</h4>
-    `
-
-    hangmanParts.forEach((part, index) => {
-        const incorrect = wrongLetters.length;
-
-        if (index < incorrect) {
-            part.style.display = 'block';
-        } else {
-            part.style.display = 'none';
-        }
-    });
-
-    if(wrongLetters.length === hangmanParts.length){
-        losingScreen.style.display = 'block'
-    }
-}
-
 //Restarting Functions
+
 button.addEventListener('click', restart);
 function restart() {
     correctLetters.splice(0);
     wrongLetters.splice(0);
 
+    if(winningScreen.style.display === 'block'){
+        winningScreen.style.display = 'none'
+        button.style.display = 'none'
+    } else if(losingScreen.style.display === 'block'){
+        losingScreen.style.display = 'none'
+        button.style.display = 'none'
+    } else {
+        console.log('Houston we have a problem')
+    }
+
     setVars();
-    playing();
+    wordFunc();
     wrongLettersFunc();
     leHint();
-    
-    winningScreen.style.display = 'none'
 }
 
-button2.addEventListener('click', restart2);
-function restart2() {
-    correctLetters.splice(0);
-    wrongLetters.splice(0);
-    
-    setVars();
-    playing();
-    wrongLettersFunc();
-    leHint();
-    
-    losingScreen.style.display = 'none';
-}
-//
 
 //Init
 setVars();
-playing();
+wordFunc();
 leHint();

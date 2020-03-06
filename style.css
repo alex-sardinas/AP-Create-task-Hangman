@@ -100,12 +100,6 @@ body{
     top: -30vh;
 }
 
-.winning-img{
-    height: 100px;
-    width: 100px;
-    float: right;
-}
-
 .winning h1{
     margin-bottom: 15px;
 }
@@ -135,8 +129,8 @@ body{
 }
 
 .let-play{
-    display: inline-block;
-    height: 25px;
+    display: none;
+    height: 100px;
     width: 100px;
-
+    position: relative;
 }
